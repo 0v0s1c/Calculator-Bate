@@ -1,0 +1,29 @@
+﻿<Page x:Class="Calculator.NewPage.BelowPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Calculator.NewPage"
+      mc:Ignorable="d" SizeChanged="Page_SizeChanged"
+      Height="auto" Width="auto"
+      Title="BelowPage">
+
+    <Grid>
+        <TextBlock Text="HEX&#x0a;DEC&#x0a;OCT&#x0a;BIN" Foreground="White" Margin="13,13,215,146"/>
+
+        <TextBlock x:Name="HEX" Foreground="White" Margin="43,13,50,217" />
+        <TextBlock x:Name="DEC" Foreground="White" Margin="43,25,50,205"/>
+        <TextBlock x:Name="OCT" Foreground="White" Margin="43,37,50,193"/>
+        <TextBlock x:Name="BIN" Foreground="White" Margin="43,49,50,181"/>
+
+        <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" 
+                                  Template="{StaticResource MyScrollViewer}" Background="Transparent" Margin="0,67,0,40">
+            <StackPanel x:Name="r"/>
+        </ScrollViewer>
+
+        <Button Template="{StaticResource otherButton}" Width="30" Margin="0,231,7,0"
+                        Content="&#xe611;"  Foreground="White" HorizontalAlignment="Right" FontSize="14" 
+                         Click="delete_Click"/>
+    </Grid>
+
+</Page>

@@ -1,0 +1,125 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        Loaded="Window_Loaded"        mc:Ignorable="d"
+        Title="calculator" Height="417" Width="255" MinHeight="417" MinWidth="255"
+        FontWeight="ExtraLight" FontSize="10" 
+        WindowStartupLocation="CenterScreen" 
+        Background="{x:Null}" SizeChanged="Window_SizeChanged"
+        Icon="/Assets/calculator.png" FontFamily="方正粗黑宋简体" >
+
+    <Window.Resources>
+        <Storyboard x:Key="FadeOutStoryboard">
+            <DoubleAnimation 
+                Storyboard.TargetName="openBorder"
+                Storyboard.TargetProperty="Opacity"
+                From="1" To="0" Duration="0:0:0.3"  BeginTime="0:0:1"/>
+        </Storyboard>
+    </Window.Resources>
+
+    <!--WindowResizeAdorner 设置窗口拖动调整大小限制-->
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome GlassFrameThickness ="0" CaptionHeight="0" UseAeroCaptionButtons="False"  CornerRadius="6"/>
+    </WindowChrome.WindowChrome>
+
+    <Border Margin="1" x:Name="Effect" CornerRadius="6">
+
+        <Border.Effect>
+            <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="2" Direction="0" />
+        </Border.Effect>
+
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                <GradientStop Color="#231D26" Offset="0.0"/>
+                <GradientStop Color="#3C2333" Offset="1.1"/>
+            </LinearGradientBrush>
+        </Border.Background>
+
+        <Grid>
+            <Frame Name="concisepageFrame"/>
+
+            <!--上滑栏-->
+            <Grid>
+
+                <Border Background="#2E2E2E" CornerRadius="5" Margin="0,417,0,0" Name="BelowPanel">
+                    <Frame Name="belowPageFrame"/>
+                </Border>
+            </Grid>
+            
+            <!--侧滑栏-->
+            <Grid>
+
+                <Border Background="#2E2E2E" CornerRadius="5" Margin="0,33,255,0" Name="SidePanel">
+                    <Frame Name="sidePageFrame"/>
+                </Border>
+            </Grid>
+
+
+            <Line x:Name="SlantLine0" Stroke="White" StrokeThickness="3" X1="50" Y1="0" X2="0" Y2="417" IsHitTestVisible="False">
+                <Line.RenderTransform>
+                    <RotateTransform CenterX="25" CenterY="208.5"/>
+                </Line.RenderTransform>
+            </Line>
+            <Line x:Name="SlantLine1" Stroke="White" StrokeThickness="3" X1="90" Y1="0 " X2="40" Y2="417" IsHitTestVisible="False">
+                <Line.RenderTransform>
+                    <RotateTransform CenterX="65" CenterY="208.5"/>
+                </Line.RenderTransform>
+            </Line>
+            <Line x:Name="SlantLine2" Stroke="White" StrokeThickness="3" X1="130" Y1="0" X2="80" Y2="417" IsHitTestVisible="False">
+                <Line.RenderTransform>
+                    <RotateTransform CenterX="105" CenterY="208.5"/>
+                </Line.RenderTransform>
+            </Line>
+            <Line x:Name="SlantLine3" Stroke="White" StrokeThickness="3" X1="170" Y1="0" X2="120" Y2="417" IsHitTestVisible="False">
+                <Line.RenderTransform>
+                    <RotateTransform CenterX="145" CenterY="208.5"/>
+                </Line.RenderTransform>
+            </Line>
+            <Line x:Name="SlantLine4" Stroke="White" StrokeThickness="3" X1="210" Y1="0" X2="160" Y2="417" IsHitTestVisible="False">
+                <Line.RenderTransform>
+                    <RotateTransform CenterX="185" CenterY="208.5"/>
+                </Line.RenderTransform>
+            </Line>
+            <Line x:Name="SlantLine5" Stroke="White" StrokeThickness="3" X1="250" Y1="0" X2="200" Y2="417" IsHitTestVisible="False">
+                <Line.RenderTransform>
+                    <RotateTransform CenterX="225" CenterY="208.5"/>
+                </Line.RenderTransform>
+            </Line>
+
+
+
+
+
+            <!--启动画面-->
+            <Border x:Name="openBorder" CornerRadius="6" Opacity="0" IsHitTestVisible="False">
+
+                <Border.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                        <GradientStop Color="#231D26" Offset="0.0"/>
+                        <GradientStop Color="#3C2333" Offset="1.1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+
+                <Grid>
+                    <Button Content="&#xe612;" Foreground="White" FontSize="47">
+                        <Button.Template>
+                            <ControlTemplate TargetType="Button">
+                                <Grid Background="Transparent">
+                                    <Border x:Name="closeback" Background="Transparent">
+                                        <TextBlock Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"
+VerticalAlignment="Center" HorizontalAlignment="Center"
+FontFamily="/Assets/#iconfont" />
+                                    </Border>
+                                </Grid>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>
